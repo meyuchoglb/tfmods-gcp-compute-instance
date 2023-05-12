@@ -30,11 +30,11 @@ variable "instance_image" {
 }
 
 variable "network" {
-  type        = optional(string)
+  type        = string
   description = "VPC to connect the instance."
 }
 
 variable "subnetwork" {
-  type        = optiona(string)  
+  type        = string
   description = "Subnetwork for the instance."
 }
