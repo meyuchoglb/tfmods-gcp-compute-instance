@@ -20,17 +20,21 @@ variable "zone" {
 variable "machine_type" {
   type        = string  
   description = "GCE machine type."
+  default     = "e2-micro"
 }
 
 variable "instance_image" {
   type        = string  
   description = "GCE image for the instance."
+  default     = "debian-cloud/debian-11"
 }
 
-variable "interfaces" {
-  type = object({
-    network                = string
-    subnetwork             = string    
-  })
-  description = "Parameters to create networks interfaces"
+variable "network" {
+  type        = optional(string)
+  description = "VPC to connect the instance."
+}
+
+variable "subnetwork" {
+  type        = optiona(string)  
+  description = "Subnetwork for the instance."
 }

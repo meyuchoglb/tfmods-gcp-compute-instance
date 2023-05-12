@@ -15,11 +15,10 @@ resource "google_compute_instance" "instance" {
     //startup-script = file("${path.module}/scripts/script_inicio_dev_back.sh")
   }
 
-  dynamic "network_interface" {
-    for_each = var.interfaces.network != null ? [1] : []
-    content {
-      network       = var.interfaces.network
-      subnetwork    = var.interfaces.subnetwork      
+  network_interface {
+    network = var.network
+    subnetwork = var.subnetwork
+    access_config {
+      }
     }
-  }
   }
