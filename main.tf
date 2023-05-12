@@ -18,7 +18,6 @@ resource "google_compute_instance" "instance" {
   network_interface {
     network = var.network
     subnetwork = var.subnetwork
-    access_config {
-      }
+    access_config {}
     }
   }
